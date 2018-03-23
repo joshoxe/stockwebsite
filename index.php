@@ -22,7 +22,7 @@
     
     <body>
         <div class="company_logo">
-            <img class="company_img" src="img/logo.png" height="110" width=200">
+            <img class="company_img" src="img/logo.png" height="110" width="200">
         </div>
         <div class="inventory_navigation">
             <ul class="inv_nav">

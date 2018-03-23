@@ -10,7 +10,13 @@
         $user = htmlentities($_POST["addUsername"]);
         $pass = htmlentities($_POST["addPassword"]);
 
-        addUser($user, $pass, 1);
+        if (isset($_POST["admin"])) {
+            $admin = 1;
+        } else {
+            $admin = 0;
+        }
+
+        addUser($user, $pass, $admin);
     }
 
     if (isset($_POST["username"]) && isset($_POST["password"])) {
