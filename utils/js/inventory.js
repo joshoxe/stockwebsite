@@ -76,10 +76,11 @@ function cellEnter(key, cell) {
 }
 
 function resetTable() {
-    // TODO: There is a bug with selecting fields where multiple inputs can be created at the same time
-    // need this function to reset all cells to table cells when the screen is clicked
+    // When the document is clicked anywhere, reset the entire table to remove any input fields
     var fields = document.getElementsByName("edit");
-    fields[0].innerHTML = "h";
+    if (fields.length > 0) {
+        fields[0].parentElement.innerHTML = document.getElementsByName("edit")[0].value;
+    }
 
 }
 
