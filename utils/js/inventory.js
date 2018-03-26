@@ -1,8 +1,8 @@
 
 function addEventListeners() {
     addTableEventListeners();
-    this.addEventListener('click', function() {
-        resetTable();
+    this.addEventListener('click', function(e) {
+        resetTable(e.target);
     })
 }
 
@@ -75,7 +75,10 @@ function cellEnter(key, cell) {
     }
 }
 
-function resetTable() {
+function resetTable(el) {
+    if(el.getAttribute("type")) {
+        return;
+    }
     // When the document is clicked anywhere, reset the entire table to remove any input fields
     var fields = document.getElementsByName("edit");
     if (fields.length > 0) {
