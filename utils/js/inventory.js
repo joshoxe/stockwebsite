@@ -37,14 +37,29 @@ function cellClick(cell) {
 }
 
 function cellEnter(key, cell) {
+    // Ensure correct expected input
+    var table = document.getElementById("inventory_table").rows;
+    var headers = table[0];
+    var header = headers.cells[cell.cellIndex].innerHTML;
+
+    switch (header) {
+        // Get the table header for the clicked cell
+        // ensure that stock and price input is numeric
+
+        case "Stock":
+        case "Price":
+            if (isNaN(document.getElementsByName("edit")[0].value)) {
+                return;
+            }
+            break;
+    }
+
     // Get each field for the updated element and send it to the server
     if (key === 13) {
         // The row of the clicked cell contains all information for the item
         // loop through and create an object
         var item = {"id":cell.getAttribute("item")};
-        console.log(item['id']);
         var row = cell.parentNode.rowIndex;
-        var table = document.getElementById("inventory_table").rows;
 
         for (var i = 0; i < table[row].cells.length; i++) {
             if (table[row].cells[i].children.length > 0) {
