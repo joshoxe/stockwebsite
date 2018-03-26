@@ -21,7 +21,9 @@
         </div>
         <div class="admin_navigation">
             <ul class="admin_nav">
-                <li><a href="add_user.php">Add New User</a></li>
+                <li><a href="add_user.php">Add New Staff Member</a></li>
+                <li><a href="remove_user.php">Remove Staff Member</a></li>
+                <li><a href="list_users.php">List Staff Members</a></li>
             </ul>
 
         </div>
