@@ -4,6 +4,23 @@ function addEventListeners() {
     this.addEventListener('click', function(e) {
         resetTable(e.target);
     })
+    document.getElementById("inventory_search").addEventListener('click', function() {
+        if (document.getElementById("inv_search_box").value == "Search") {
+            document.getElementById("inv_search_box").value = "";
+        }
+    })
+    document.getElementById("inv_search_box").addEventListener('keyup', function(e) {
+        sendSearch();
+    })
+    document.getElementById("inv_search_box").addEventListener('click', function() {
+        if (this.value == "Search") {
+            this.value = "";
+        }
+    })
+
+    document.getElementById("system_select").addEventListener('click', function() {
+        sendSearch();
+    })
 }
 
 function addTableEventListeners() {
@@ -20,16 +37,50 @@ function addTableEventListeners() {
     }
 }
 
+function sendSearch() {
+    // Send an AJAX search request to dynamically retrieve items
+    var search = document.getElementById("inv_search_box").value;
+    var system = document.getElementById("system_select").value;
+
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(search);
+            console.log(system);
+            console.log(this.responseText);
+            document.getElementById("inventory_table").innerHTML = " <table id='inventory_table'> \n" +
+            "<tr> \n" +
+                "<th>Name</th> \n" +
+               "<th>System</th> \n" +
+                "<th>Stock</th> \n" +
+                "<th>Price</th> \n" +
+            "</tr> \n" +
+            this.responseText +
+           "</table>";
+
+           // Re-add the event listeners for the cells
+           addTableEventListeners();
+        }
+    }
+
+    xhttp.open("POST", "../utils/php/inventory_database.php", true);
+    xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhttp.send("searchValue=" + search + "&searchConsole=" + system);
+
+}
+
 function cellClick(cell) {
     // Change the clicked cell to an input field
 
-    // Don't change if the cell is already an input field
-    if(cell.children.length > 0) {
+    // Don't change if the cell is already an input field or is a header field
+    if(cell.children.length > 0 || cell.tagName == "TH") {
         if (cell.children[0].getAttribute("type") == "text") {
             return;
         }
     }
-    cell.innerHTML = "<input type='text' name='edit' value = '" + cell.innerHTML + "'>";
+    var size = cell.innerHTML.length;
+    cell.innerHTML = "<input type='text' style='width:" + size + "ex' name='edit' value = '" + cell.innerHTML + "'>";
     // Add an event listener for the Enter key, for submitting the input data 
     cell.addEventListener('keypress', function(e) {
         cellEnter(e.which, this);
@@ -66,7 +117,7 @@ function cellEnter(key, cell) {
                 // An object of item name => item value
                 item[table[row].cells[i].getAttribute("name")] = table[row].cells[i].children[0].value;
             } else {
-            item[table[row].cells[i].getAttribute("name")] = table[row].cells[i].innerHTML;
+                item[table[row].cells[i].getAttribute("name")] = table[row].cells[i].innerHTML;
             }
         }
         

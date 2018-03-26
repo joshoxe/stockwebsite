@@ -18,17 +18,12 @@
         }
     }
 
-    $inventory = listInventoryByName();
-    $output = "";
+    // Build console list for search filter
+    $systems = systemList();
+    $outputSys = "<option value='All'>All</option>";
 
-    // Retrieve the inventory from the database and add each item to a table
-    foreach ($inventory as $item) {
-        $output.= "<tr>";
-        $output.= "<td name='name', item='".  $item->get_id() ."'>" . $item->get_name() . "</td>" .
-        "<td name='console', item='".  $item->get_id() ."'>" . $item->get_console() . "</td>" .
-        "<td name='qty', item='".  $item->get_id() ."'>" . $item->get_qty() . "</td>" .
-        "<td name='price', item='".  $item->get_id() ."'>" . $item->get_price() . "</td>";
-        $output.= "</tr>";
+    foreach ($systems as $system) {
+        $outputSys.= "<option value='" . $system . "'>".$system."</option>";
     }
 ?>
 <!DOCTYPE html>
@@ -54,6 +49,13 @@
         </div>
 
         <div class="main_body">
+            <div id="inventory_search">
+                <input type="text" value="Search" id="inv_search_box">
+                <select id="system_select">
+                    <?php echo $outputSys; ?>
+                </select>
+                <input type="submit" value="Submit">
+            </div>
            <table id='inventory_table'>
             <tr>
                 <th>Name</th>
@@ -61,7 +63,7 @@
                 <th>Stock</th>
                 <th>Price</th>
             </tr>
-            <?php echo $output; ?>
+            <?php listInventory(); ?>
            </table>
         </div>
     </body>
