@@ -1,24 +1,33 @@
 
 function addEventListeners() {
     addTableEventListeners();
-    this.addEventListener('click', function(e) {
-        resetTable(e.target);
-    })
-    document.getElementById("inventory_search").addEventListener('click', function() {
-        if (document.getElementById("inv_search_box").value == "Search") {
-            document.getElementById("inv_search_box").value = "";
-        }
-    })
-    document.getElementById("inv_search_box").addEventListener('keyup', function(e) {
-        sendSearch();
-    })
-    document.getElementById("inv_search_box").addEventListener('click', function() {
-        if (this.value == "Search") {
-            this.value = "";
-        }
-    })
 
-    document.getElementById("system_select").addEventListener('click', function() {
+    // Group together computer & mobile event types and assign each one
+    var types = ['click', 'touch'];
+
+    for (type of types) {
+        this.addEventListener(type, function(e) {
+            resetTable(e.target);
+        })
+
+        document.getElementById("inventory_search").addEventListener(type, function() {
+            if (document.getElementById("inv_search_box").value == "Search") {
+                document.getElementById("inv_search_box").value = "";
+            }
+        })
+
+        document.getElementById("inv_search_box").addEventListener(type, function() {
+            if (this.value == "Search") {
+                this.value = "";
+            }
+        })
+
+        document.getElementById("system_select").addEventListener(type, function() {
+            sendSearch();
+        })
+    }
+
+    document.getElementById("inv_search_box").addEventListener('keyup', function(e) {
         sendSearch();
     })
 }
@@ -27,9 +36,27 @@ function addTableEventListeners() {
     // Add a double click event listener for every cell in our inventory table
     // used to change the cell to an input field for changing data
     var row = document.getElementById("inventory_table").rows;
+    var timer = null;
 
     for (var i = 0; i < row.length; i++) {
         for (var j = 0; j < row[i].cells.length; j++) {
+            // Mobile event
+            row[i].cells[j].addEventListener('touchstart', function(e) {
+                // Start a timer to simulate a double-touch event
+                if (timer == null) {
+                    timer = setTimeout(function() {
+                        timer = null;
+                    }, 1000)
+                } else {
+                    resetTable(e.target);
+                    e.preventDefault();
+                    clearTimeout(timer);
+                    timer = null;
+                    cellClick(this);
+                }
+            })
+
+            // Computer event
             row[i].cells[j].addEventListener('dblclick', function() {
                 cellClick(this);
             })
@@ -72,7 +99,6 @@ function sendSearch() {
 
 function cellClick(cell) {
     // Change the clicked cell to an input field
-
     // Don't change if the cell is already an input field or is a header field
     if(cell.children.length > 0 || cell.tagName == "TH") {
         if (cell.children[0].getAttribute("type") == "text") {
