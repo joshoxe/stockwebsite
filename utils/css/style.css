@@ -41,7 +41,6 @@
 
     #navigation  li {
         padding: 2%;
-        border: 1px solid #333;
         border-radius: 5px;
         text-align: center;
         list-style-type: none;
@@ -90,13 +89,17 @@
         display: inline-block;
     }
 
+    #table {
+        background-color: #fff;
+        width: 100%;
+    }
+
     #inventory_table {
         margin-top: 3%;
         background-color: #fff;
         width: 100%;
         box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
     }
-
     .admin_buttons {
         width: 100%;
         justify-content: center;
@@ -162,4 +165,8 @@
 
     .staff_list li:hover {
         background-color: #b3e5fc;
+    }
+
+    .inventory_button {
+        padding: 1%;
     }

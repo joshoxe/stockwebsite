@@ -25,8 +25,6 @@
         </div>
         <div class="main_body">
             <div class="admin_buttons">
-            <a href="add_item.php"><span class="admin_item">Add New Item</span></a>
-            <a href="remove_item.php"><span class="admin_item">Remove Item</span></a>
             <a href="add_user.php"><span class="admin_item">Add New Staff Member</span></a>
             <a href="remove_user.php"><span class="admin_item">Remove Staff Member</span></a>
             <a href="list_users.php"><span class="admin_item">List Staff Members</span></a>
