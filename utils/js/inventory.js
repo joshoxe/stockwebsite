@@ -46,7 +46,7 @@ function addTableEventListeners() {
                 if (timer == null) {
                     timer = setTimeout(function() {
                         timer = null;
-                    }, 1000)
+                    }, 300)
                 } else {
                     resetTable(e.target);
                     e.preventDefault();
