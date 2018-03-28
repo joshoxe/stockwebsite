@@ -54,8 +54,8 @@
                     <?php echo $outputSys; ?>
                 </select>
             </div>
-           <div id='inventory_table'>
-           <table id='table'>
+           <div id='table'>
+           <table id='inventory_table'>
             <a href="add_item.php"><span class="inventory_button">Add New Item</span></a>
             <a href="remove_item.php"><span class="inventory_button">Remove Item</span></a>
             <tr>

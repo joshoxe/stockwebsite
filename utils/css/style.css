@@ -89,12 +89,12 @@
         display: inline-block;
     }
 
-    #table {
+    #inventory_table {
         background-color: #fff;
         width: 100%;
     }
 
-    #inventory_table {
+    #table {
         margin-top: 3%;
         background-color: #fff;
         width: 100%;
