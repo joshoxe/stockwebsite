@@ -25,6 +25,42 @@
         updateRecord($conn, $id, $name, $console, $qty, $price);
     }
 
+    if (isset($_POST["addItemName"])) {
+        // This is a request to add an item
+        // not all fields necessary
+        echo "Hello";
+
+        $name = htmlentities($_POST["addItemName"]);
+        $console = "";
+        $stock = "";
+        $price = "";
+
+        if (isset($_POST["addItemConsole"])) {
+            $console = htmlentities($_POST["addItemConsole"]);
+        }
+
+        if (isset($_POST["addItemStock"])) {
+            $stock = htmlentities($_POST["addItemStock"]);
+        }
+
+        if (isset($_POST["addItemPrice"])) {
+            $price = htmlentities($_POST["addItemPrice"]);
+        }
+
+        addItem($conn, $name, $console, $stock, $price);
+    }
+
+    function addItem($conn, $name, $console, $stock, $price) {
+        $sql = "INSERT INTO inventory (name, console, qty, price) VALUES (?, ?, ?, ?)";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ssss", $name, $console, $stock, $price);
+
+        if(!$stmt->execute()) {
+            echo $sql->error;
+        }
+    }
+
     function systemList() {
         // Get a list of all game systems in the database
         global $conn;
