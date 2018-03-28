@@ -12,7 +12,7 @@
     } else {
         if (isset($_SESSION["failed_username"])) {
             $failed = $_SESSION["failed_username"];
-            $message = "<p>Couldn't find staff member <b>" . $failed . "</b></p>";
+            $message = "<p>Couldn't delete staff member <b>" . $failed . "</b></p>";
             unset($_SESSION["failed_username"]);
         }
     }
