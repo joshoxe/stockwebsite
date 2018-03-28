@@ -50,7 +50,6 @@
         </div>
 
         <div class="main_body">
-        <h1>This does not work</h1>
             <?php echo $message; ?>
         </div>
     </body>
