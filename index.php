@@ -1,5 +1,4 @@
 <?php
-    session_start();
     require('utils/php/inventory_database.php');
 
     if (isset($_SESSION["user"])) {

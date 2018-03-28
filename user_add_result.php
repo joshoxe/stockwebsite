@@ -5,16 +5,10 @@
     
     $message = "";
 
-    if (isset($_SESSION["deleted_user"])) {
-        $deleted = $_SESSION["deleted_user"];
-        $message = "<p>Successfully deleted staff member <b>" . $deleted . "</b></p>";
-        unset($_SESSION["deleted_user"]);
-    } else {
-        if (isset($_SESSION["failed_username"])) {
-            $failed = $_SESSION["failed_username"];
-            $message = "<p>Couldn't find staff member <b>" . $failed . "</b></p>";
-            unset($_SESSION["failed_username"]);
-        }
+    if (isset($_SESSION["added_username"])) {
+        $added = $_SESSION["added_username"];
+        $message = "<p>Successfully added staff member <b>" . $added . "</b></p>";
+        unset($_SESSION["added_username"]);
     }
 ?>
 
@@ -44,7 +38,7 @@
                     echo $message;
                     
                     if ($message == "") {
-                        header("Location: remove_user.php");
+                        header("Location: add_user.php");
                     }
 
                 ?>

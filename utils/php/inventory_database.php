@@ -1,6 +1,6 @@
 <?php
 // Database related function for inventory management
-    //session_start();
+    session_start();
 
     // Start the db connection and bring in the game class
     require('connection.php');
@@ -57,8 +57,13 @@
         $stmt->bind_param("ssss", $name, $console, $stock, $price);
 
         if(!$stmt->execute()) {
+            $_SESSION["failed_item"] = $name;
             echo $sql->error;
+            header("Location: ../../item_add_result.php");
         }
+
+        $_SESSION["added_item"] = $name;
+        header("Location: ../../item_add_result.php");
     }
 
     function systemList() {

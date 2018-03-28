@@ -78,7 +78,9 @@
             $sql = $conn->prepare("INSERT INTO users (username, password, admin) VALUES (?, ?, ?)");
             $sql->bind_param("sss", $user, $hashed_pass, $priv);
             $sql->execute();
+            $_SESSION["added_username"] = $user;
             mysqli_close($conn);
+            header("Location: ../../user_add_result.php");
         }
 
         function authUser($conn, $user, $pass) {

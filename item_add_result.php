@@ -4,16 +4,20 @@
     require('utils/php/user_check.php');
     
     $message = "";
+    foreach($_SESSION as $key => $value) 
+{ 
+     echo $key . ' = ' . $value; 
+}  
 
-    if (isset($_SESSION["deleted_user"])) {
-        $deleted = $_SESSION["deleted_user"];
-        $message = "<p>Successfully deleted staff member <b>" . $deleted . "</b></p>";
-        unset($_SESSION["deleted_user"]);
+    if (isset($_SESSION["added_item"])) {
+        $added = $_SESSION["added_item"];
+        $message = "<p>Successfully added item <b>" . $added . "</b></p>";
+        unset($_SESSION["added_item"]);
     } else {
-        if (isset($_SESSION["failed_username"])) {
-            $failed = $_SESSION["failed_username"];
-            $message = "<p>Couldn't find staff member <b>" . $failed . "</b></p>";
-            unset($_SESSION["failed_username"]);
+        if (isset($_SESSION["failed_item"])) {
+            $failed = $_SESSION["failed_item"];
+            $message = "<p>Couldn't add item <b>" . $failed . "</b></p>";
+            unset($_SESSION["failed_item"]);
         }
     }
 ?>
@@ -44,7 +48,7 @@
                     echo $message;
                     
                     if ($message == "") {
-                        header("Location: remove_user.php");
+                        header("Location: add_item.php");
                     }
 
                 ?>
