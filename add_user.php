@@ -5,7 +5,7 @@
 ?>
 <html>
     <head>
-        <title>Login</title>
+        <title>Add New Staff Member</title>
         <script src="utils/js/validation.js"></script>
         <link rel="stylesheet" type="text/css" href="utils/css/style.css">
         <link rel="stylesheet" type="text/css" href="utils/css/responsive_style.css">
