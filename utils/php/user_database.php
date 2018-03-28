@@ -51,7 +51,12 @@
 
         function removeUser($conn, $user) {
             // Remove a user from the database
-            // This currently isn't working correctly
+            if ($_SESSION['user'] == $user) {
+                $_SESSION['failed_username'] = $user;
+                header("Location: ../../user_deletion_result.php");
+                return;
+            }
+
             $sql = $conn->prepare("SELECT COUNT(id) FROM users WHERE username = ?");
             $sql->bind_param('s', $user);
             $sql->bind_result($count);
