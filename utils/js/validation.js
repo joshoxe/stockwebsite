@@ -9,3 +9,20 @@ function validateLogin() {
         return false;
     }
 }
+
+function validateAddItem() {
+    var name = document.forms["itemForm"]["addItemName"].value;
+    var console = document.forms["itemForm"]["addItemConsole"].value;
+    var stock = document.forms["itemForm"]["addItemStock"].value;
+    var price = document.forms["itemForm"]["addItemPrice"].value;
+
+    if (name == "" || console == "") {
+        alert("Please fill in name and console");
+        return false;
+    }
+
+    if (isNaN(stock) || isNaN(price)) {
+        alert("Stock and price should be numeric");
+        return false;
+    }
+}

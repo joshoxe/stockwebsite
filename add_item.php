@@ -5,11 +5,12 @@
 ?>
 <html>
     <head>
-        <title>Login</title>
-        <script src="utils/js/script.js"></script>
+        <title>Add New Item</title>
+        <script src="utils/js/validation.js"></script>
         <link rel="stylesheet" type="text/css" href="utils/css/style.css">
         <link rel="stylesheet" type="text/css" href="utils/css/responsive_style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
     </head>
 
     <body>
@@ -25,7 +26,7 @@
         </div>
         <div id="form">
             <p>Add a new item</p>
-            <form name="loginForm" action="utils/php/inventory_database.php" method="POST" onsubmit="return validateLogin()">
+            <form name="itemForm" action="utils/php/inventory_database.php" method="POST" onsubmit="return validateAddItem()">
                 <input class="field" type="text" name="addItemName" placeholder="Name"><br />
                 <input class="field" type="text" name="addItemConsole" placeholder="Console"><br />
                 <input class="field" type="text" name="addItemStock" placeholder="Stock"><br />
