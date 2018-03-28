@@ -74,7 +74,9 @@
 
         if ($sql->num_rows > 0) {
             while ($row = $sql->fetch_assoc()){
-                array_push($systems, $row['console']);
+                if (!in_array($row['console'], $systems)) {
+                    array_push($systems, $row['console']);
+                }
             }
         }
 
