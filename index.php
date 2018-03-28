@@ -31,21 +31,21 @@
     <head>
         <title>Company Inventory</title>
         <script src="utils/js/inventory.js"></script>
+        <link rel="stylesheet" type="text/css" href="utils/css/style.css">
+        <link rel="stylesheet" type="text/css" href="utils/css/responsive_style.css">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
     </head>
     
     <body onload="addEventListeners()">
-        <div class="company_logo">
-            <img class="company_img" src="img/logo.png" height="110" width="200">
-        </div>
-        <div class="inventory_navigation">
+        <div id="navigation">
+            <div class="company_logo">
+                <img class="company_img" src="img/logo.png" height="110" width="200">
+            </div>
             <ul class="inv_nav_left">
                 <li><a href="index.php">Home</a></li>
-            </ul>
-            <ul class="inv_nav_right">
                 <li><?php echo $loggedIn; ?></li>
                 <li><?php echo $admin; ?></li>
             </ul>
-
         </div>
 
         <div class="main_body">
@@ -54,7 +54,6 @@
                 <select id="system_select">
                     <?php echo $outputSys; ?>
                 </select>
-                <input type="submit" value="Submit">
             </div>
            <table id='inventory_table'>
             <tr>

@@ -9,14 +9,23 @@
     <head>
         <title>Login</title>
         <script src="utils/js/script.js"></script>
+        <link rel="stylesheet" type="text/css" href="utils/css/style.css">
+        <link rel="stylesheet" type="text/css" href="utils/css/responsive_style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 
     <body>
-        <div class="login">
+    <div id="navigation">
+            <div class="company_logo">
+                <img class="company_img" src="img/logo.png" height="110" width="200">
+            </div>
+    </div>
+        <div id="form">
+            <p>Login</p>
             <form name="loginForm" action="utils/php/user_database.php" method="POST" onsubmit="return validateLogin()">
-                <input type="text" name="username" value="Username"><br />
-                <input type="text" name="password" value="Password"><br />
-                <input type="submit" value="Submit">
+                <input class="field" type="text" name="username" placeholder="Username"><br />
+                <input class="field" type="password" name="password" placeholder="Password"><br />
+                <input class="button" type="submit" value="Submit">
             </form>
         </div>
     </body>

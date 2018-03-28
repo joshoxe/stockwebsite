@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <?php
     session_start();
-    if (isset($_SESSION["admin"])) {
-        if ($_SESSION["admin"] < 1) {
-            header("Location: index.php");
-        }
-    } else {
-        header("Location: index.php");
-    }
+    require('utils/php/user_check.php');
 ?>
 <html>
     <head>
         <title>Login</title>
         <script src="utils/js/script.js"></script>
+        <link rel="stylesheet" type="text/css" href="utils/css/style.css">
+        <link rel="stylesheet" type="text/css" href="utils/css/responsive_style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 
     <body>
-        <div class="login">
+    <div id="navigation">
+            <div class="company_logo">
+                <img class="company_img" src="img/logo.png" height="110" width="200">
+            </div>
+            <ul class="inv_nav_left">
+                <li><a href="index.php">Home</a></li>
+                <li><?php echo $loggedIn; ?></li>
+                <li><?php echo $admin; ?></li>
+            </ul>
+        </div>
+        <div id="form">
             <form name="loginForm" action="utils/php/user_database.php" method="POST" onsubmit="return validateLogin()">
-                <input type="text" name="addUsername" value="Username"><br />
-                <input type="text" name="addPassword" value="Password"><br />
+                <input class="field" type="text" name="addUsername" placeholder="Username"><br />
+                <input class="field" type="password" name="addPassword" placeholder="Password"><br />
                 <p>Admin: 
                 <input type="checkbox" name="admin" value="Admin"><br /></p>
-                <input type="submit" value="Submit">
+                <input class="button" type="submit" value="Submit">
             </form>
         </div>
     </body>

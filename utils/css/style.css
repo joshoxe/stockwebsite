@@ -1,0 +1,165 @@
+    @import "https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,cyrillic";
+    html {
+        font-size: 80.5%;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'RobotoDraft', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 1.4rem;
+        color: #212121;
+        background-color: #f5f5f5;
+    }
+
+    a, a:visited, a:hover, a:active {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    input {
+        position: relative;
+        color: inherit;
+        font-family: inherit;
+        font-size: inherit;
+        padding-left: 5px;
+        z-index: 1;
+    }
+
+    th {
+        font-weight: 400;
+        color: #757575;
+        text-align: left;
+        border: 0;
+        border-bottom: 1px solid #f5f5f5;
+    }
+
+    td, th {
+        padding: 1.2rem;
+    }
+
+    #navigation  li {
+        padding: 2%;
+        border: 1px solid #333;
+        border-radius: 5px;
+        text-align: center;
+        list-style-type: none;
+        margin-bottom: 5%;
+    }
+
+    td:hover {
+        background-color: #b3e5fc;
+    }
+
+    .company_logo {
+        float: left;
+    }
+
+    #navigation {
+        overflow: hidden;
+        display: block;
+        margin-top: 1%;
+        padding-bottom: 2%;
+        border-bottom: 1px solid #757575;
+    }
+
+    #navigation {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5%;
+    }
+
+    .main_body {
+        clear: both;
+        display: block;
+    }
+
+    #inventory_search {
+        display: flex;
+        justify-content: center;
+    }
+
+    #inv_search_box {
+        display: inline-block;
+        width: 80%;
+        
+    }
+
+    #system_select {
+        display: inline-block;
+    }
+
+    #inventory_table {
+        margin-top: 3%;
+        background-color: #fff;
+        width: 100%;
+        box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    .admin_buttons {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .admin_item {
+        display: block;
+        padding: 3%;
+        width: 50%;
+        margin: 0 auto;
+        list-style: none;
+        background-color: #fff;
+        box-shadow: 2px 6px #888888;
+        font-size: 1.8rem;
+        border-bottom: 1px solid #82b3c9;
+    }
+
+    #form {
+        display: block;
+        width: 20%;
+        padding: 2% 0;
+        text-align: center;
+        margin: 0 auto;
+        background-color: #fff;
+        box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+        font-size: 1.8rem;
+    }
+
+    .field {
+        border: none;
+        width: 50%;
+        padding: 8% 0;
+        border-bottom: 1px solid #b3e5fc;
+        text-align: bottom;
+    }
+
+    .button {
+        border: none;
+        background-color: #82b3c9;
+        color: #000;
+        padding: 3%;
+        margin-top: 10%;
+        width: 50%;
+        box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    .staff_list {
+        display: block;
+        width: 20%;
+        padding: 4% 0;
+        text-align: center;
+        margin: 0 auto;
+        background-color: #fff;
+        box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+        font-size: 1.8rem;
+    }
+
+    .staff_list li {
+        list-style-type: circle;
+        padding: 2%;
+    }
+
+    .staff_list li:hover {
+        background-color: #b3e5fc;
+    }
