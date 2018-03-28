@@ -112,7 +112,6 @@
             while ($stmt->fetch()) {
                 $inventory[] = new Game($dbId, $dbName, $dbConsole, $dbQty, $dbPrice);
             }
-        } else {
         }
 
         $outputInv = "";
