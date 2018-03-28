@@ -4,10 +4,6 @@
     require('utils/php/user_check.php');
     
     $message = "";
-    foreach($_SESSION as $key => $value) 
-{ 
-     echo $key . ' = ' . $value; 
-}  
 
     if (isset($_SESSION["added_item"])) {
         $added = $_SESSION["added_item"];
