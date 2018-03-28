@@ -25,8 +25,8 @@
         updateRecord($conn, $id, $name, $console, $qty, $price);
     }
 
-    if (isset($_POST["removeItem"])) {
-        $item = htmlentities($_POST["removeItem"]);
+    if (isset($_POST["removeName"])) {
+        $item = htmlentities($_POST["removeName"]);
 
         removeItem($conn, $item);
     }

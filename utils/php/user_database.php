@@ -26,10 +26,10 @@
             authUser($conn, $user, $pass);
         }
 
-        if (isset($_POST["removeUsername"])) {
+        if (isset($_POST["removeName"])) {
             // Is the request to remove a user?
 
-            $user = htmlentities($_POST["removeUsername"]);
+            $user = htmlentities($_POST["removeName"]);
 
             removeUser($conn, $user);
         }

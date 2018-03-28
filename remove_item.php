@@ -5,8 +5,8 @@
 ?>
 <html>
     <head>
-        <title>Remove Staff</title>
-        <script src="utils/js/script.js"></script>
+        <title>Remove Item</title>
+        <script src="utils/js/validation.js"></script>
         <link rel="stylesheet" type="text/css" href="utils/css/style.css">
         <link rel="stylesheet" type="text/css" href="utils/css/responsive_style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,8 +25,8 @@
         </div>
         <div id="form">
         <p>Remove an item</p>
-            <form name="loginForm" action="utils/php/inventory_database.php" method="POST" onsubmit="return checkDelete()">
-                <input class="field" type="text" name="removeItem" placeholder="Item name"><br />
+            <form name="deleteForm" action="utils/php/inventory_database.php" method="POST" onsubmit="return validateDelete()">
+                <input class="field" type="text" name="removeName" placeholder="Item name"><br />
                 <input class="button" type="submit" value="Confirm">
             </form>
         </div>

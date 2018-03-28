@@ -26,3 +26,13 @@ function validateAddItem() {
         return false;
     }
 }
+
+function validateDelete() {
+    var name = document.forms["deleteForm"]["removeName"].value;
+
+    if (name == "") {
+        alert("Please fill in a name");
+        return false;
+    }
+}
+
