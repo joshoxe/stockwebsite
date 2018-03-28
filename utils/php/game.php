@@ -33,18 +33,5 @@
         function get_qty() {
             return $this->qty;
         }
-
-        function save() {
-            // Save the item to the database
-            $conn = new mysqli("localhost", "root", "", "stock_site");
-
-            if ($conn->connect_error) {
-                die($conn->connect_error);
-            }
-
-            $sql = $conn->prepare("UPDATE inventory SET name = ?, console = ?, qty = ?, price = ?");
-            $sql->bind_param("ssss", $this->name, $this->console, $this->qty, $this->price);
-            $sql->execute();
-        }
     }
 ?>
