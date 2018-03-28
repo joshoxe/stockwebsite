@@ -25,10 +25,15 @@
         updateRecord($conn, $id, $name, $console, $qty, $price);
     }
 
+    if (isset($_POST["removeItem"])) {
+        $item = htmlentities($_POST["removeItem"]);
+
+        removeItem($conn, $item);
+    }
+
     if (isset($_POST["addItemName"])) {
         // This is a request to add an item
         // not all fields necessary
-        echo "Hello";
 
         $name = htmlentities($_POST["addItemName"]);
         $console = "";
@@ -48,6 +53,28 @@
         }
 
         addItem($conn, $name, $console, $stock, $price);
+    }
+
+    function removeItem($conn, $item) {
+        $sql = $conn->prepare("SELECT COUNT(id) FROM inventory WHERE name = ?");
+        $sql->bind_param('s', $item);
+        $sql->bind_result($count);
+        $sql->execute();
+        $sql->store_result();
+
+        while($sql->fetch()) {
+            if ($count > 0) {
+                $sql = $conn->prepare("DELETE FROM inventory WHERE name = ?");
+                $sql->bind_param("s", $item);
+                $sql->execute();
+                $_SESSION["deleted_item"] = $item;
+            } else {
+                $_SESSION["failed_item"] = $item;
+            }
+        }
+
+        header("Location: ../../remove_item_result.php");
+
     }
 
     function addItem($conn, $name, $console, $stock, $price) {

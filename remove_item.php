@@ -1,12 +1,12 @@
+<!DOCTYPE html>
 <?php
     session_start();
     require('utils/php/user_check.php');
 ?>
-
-<!DOCTYPE html>
 <html>
     <head>
-        <title>Administrator Panel</title>
+        <title>Remove Staff</title>
+        <script src="utils/js/script.js"></script>
         <link rel="stylesheet" type="text/css" href="utils/css/style.css">
         <link rel="stylesheet" type="text/css" href="utils/css/responsive_style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,14 +23,12 @@
                 <li><?php echo $admin; ?></li>
             </ul>
         </div>
-        <div class="main_body">
-            <div class="admin_buttons">
-            <a href="add_item.php"><span class="admin_item">Add New Item</span></a>
-            <a href="remove_item.php"><span class="admin_item">Remove Item</span></a>
-            <a href="add_user.php"><span class="admin_item">Add New Staff Member</span></a>
-            <a href="remove_user.php"><span class="admin_item">Remove Staff Member</span></a>
-            <a href="list_users.php"><span class="admin_item">List Staff Members</span></a>
-            </div>
+        <div id="form">
+        <p>Remove an item</p>
+            <form name="loginForm" action="utils/php/inventory_database.php" method="POST" onsubmit="return checkDelete()">
+                <input class="field" type="text" name="removeItem" placeholder="Item name"><br />
+                <input class="button" type="submit" value="Confirm">
+            </form>
         </div>
     </body>
 </html>
