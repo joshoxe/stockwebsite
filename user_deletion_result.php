@@ -2,7 +2,7 @@
     session_start();
 
     require('utils/php/user_check.php');
-    
+
     $message = "";
 
     if (isset($_SESSION["deleted_user"])) {

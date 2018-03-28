@@ -104,10 +104,12 @@
                         $_SESSION["admin"] = $dbAdmin;
                         header("Location: ../../index.php");
                     } else {
+                        $_SESSION["failed_login"] = "Incorrect password";
                         header("Location: ../../login.php");
                     }
                 }
             } else {
+                $_SESSION["failed_login"] = "User not found";
                 header("Location: ../../login.php");
             }
         }
